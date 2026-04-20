@@ -34,12 +34,12 @@ Convo AI is a minimalist, high-performance AI assistant built with a modern Reac
 - **MongoDB Atlas Connectivity:** Diagnosed and resolved a connection timeout by identifying the need to whitelist Vercel's dynamic IPs (`0.0.0.0/0`) in MongoDB Atlas Network Access.
 - **CORS & Routing:** Verified and secured API routes and CORS policies for seamless frontend-backend communication.
 
-## Deployment Status
+## Deployment Status (SUCCESS)
+- **Frontend (Vercel):** [https://convo-ai-7m4f.vercel.app/](https://convo-ai-7m4f.vercel.app/)
 - **Backend (Render):** [https://convo-ai-1.onrender.com/](https://convo-ai-1.onrender.com/)
-- **Frontend (Vercel):** [https://convo-ai-3f5k0jx14-convo-ai.vercel.app/](https://convo-ai-3f5k0jx14-convo-ai.vercel.app/)
 
-### Deployment Update
-Migrated backend hosting to **Render** for better support of the persistent Express server.
+### Deployment Summary
+The project has been successfully deployed and verified. The frontend is hosted on Vercel with SPA routing enabled, and the backend is hosted on Render, connected to MongoDB Atlas. All API communication is functional.
 
 ---
 *Documentation updated on Monday, 20 April 2026.*
