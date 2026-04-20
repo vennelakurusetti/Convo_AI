@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-import { ArrowUp, Sparkles, AlertCircle, RefreshCw, MessageSquare, Plus } from 'lucide-react';
+import { ArrowUp, AlertCircle, RefreshCw } from 'lucide-react';
 import Sidebar from './Sidebar';
 
 const ChatPage = () => {
@@ -45,7 +45,7 @@ const ChatPage = () => {
         response: newResponse,
         timestamp: new Date().toISOString()
       };
-      
+
       const updatedHistory = [...history, newHistoryItem];
       setHistory(updatedHistory);
       localStorage.setItem('convo_history', JSON.stringify(updatedHistory));
@@ -80,71 +80,80 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-convo-bg text-convo-text flex selection:bg-convo-accent/40 relative overflow-hidden">
-      {/* Subtle Animated Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#020617] via-[#0b1120] to-[#020617] bg-[length:400%_400%] animate-gradient-shift pointer-events-none"></div>
-      
-      <Sidebar 
-        history={history} 
-        onNewChat={handleNewChat} 
-        onSelectHistory={handleSelectHistory} 
+    <div className="min-h-screen flex text-white relative overflow-hidden bg-[#020617]">
+
+      {/* 🔥 Better Background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-blue-600/20 blur-[140px] rounded-full"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-indigo-600/20 blur-[120px] rounded-full"></div>
+      </div>
+
+      <Sidebar
+        history={history}
+        onNewChat={handleNewChat}
+        onSelectHistory={handleSelectHistory}
         currentChatId={currentChatId}
       />
 
-      <main className="flex-1 flex flex-col items-center justify-center relative lg:ml-[280px] z-10 p-6 md:p-12">
-        <div className="w-full max-w-2xl flex flex-col items-center space-y-12 transition-all duration-700">
-          
-          {/* Header Section */}
-          <header className={`w-full text-center transition-all duration-700 ${response ? 'scale-90 opacity-80' : 'scale-100 opacity-100'}`}>
-            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4 animate-fade-in">
+      {/* ✅ MAIN CONTENT FIXED */}
+      <main className="flex-1 flex flex-col items-center justify-start pt-28 lg:ml-[280px] px-6">
+
+        <div className="w-full max-w-2xl flex flex-col items-center space-y-8">
+
+          {/* 🔥 HEADER FIXED */}
+          <header className="w-full text-center">
+            <h1 className="text-5xl md:text-6xl font-semibold tracking-tight mb-3">
               How can I help you today?
             </h1>
+
             {!response && (
-              <p className="text-convo-muted text-lg animate-fade-in delay-200">
+              <p className="text-slate-400 text-lg">
                 Ask anything. Get instant AI-powered answers.
               </p>
             )}
           </header>
 
-          {/* Response Container */}
+          {/* 🔥 RESPONSE */}
           {response && (
-            <div ref={responseRef} className="w-full animate-fade-in duration-700">
-              <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md shadow-2xl overflow-hidden">
-                <div className="prose prose-invert prose-lg max-w-none text-slate-200 leading-relaxed font-normal">
+            <div ref={responseRef} className="w-full animate-in fade-in slide-in-from-bottom-4 duration-500">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md shadow-xl">
+                <div className="text-slate-200 leading-relaxed space-y-3">
                   {response.split('\n').map((paragraph, idx) => (
-                    <p key={idx} className="mb-4">{paragraph}</p>
+                    <p key={idx}>{paragraph}</p>
                   ))}
                 </div>
               </div>
             </div>
           )}
 
-          {/* Error Message */}
+          {/* 🔥 ERROR */}
           {error && (
-            <div className="w-full p-6 bg-red-500/5 border border-red-500/20 rounded-3xl flex items-center space-x-4 text-red-400 animate-in shake">
-              <AlertCircle className="w-5 h-5 flex-shrink-0" />
-              <span className="text-sm font-medium">{error}</span>
+            <div className="w-full p-4 bg-red-500/5 border border-red-500/20 rounded-xl flex items-center space-x-3 text-red-400">
+              <AlertCircle className="w-5 h-5" />
+              <span>{error}</span>
             </div>
           )}
 
-          {/* Focus Input Section */}
-          <div className={`w-full transition-all duration-700 ${response ? 'pt-8' : 'pt-0'}`}>
-            <div className="relative group bg-convo-panel/60 backdrop-blur-3xl border border-convo-border rounded-full p-2 pr-3 transition-all focus-within:ring-2 focus-within:ring-convo-accent/40 focus-within:border-convo-accent/50 group-hover:border-convo-border animate-fade-in delay-300">
+          {/* 🔥 INPUT (CLEAN + PREMIUM) */}
+          <div className="w-full pt-4">
+            <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-full p-2 pr-3 transition-all focus-within:ring-2 focus-within:ring-blue-500/30">
+
               <textarea
-                className="w-full bg-transparent border-none focus:ring-0 px-6 pt-3.5 text-lg text-white placeholder:text-convo-muted resize-none h-[60px] max-h-[160px] outline-none scrollbar-hide flex items-center leading-normal"
+                className="w-full bg-transparent outline-none px-6 pt-3 text-lg text-white placeholder:text-slate-400 resize-none h-[60px]"
                 placeholder="Ask me anything..."
                 rows="1"
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
                 onKeyDown={handleKeyDown}
               />
+
               <button
                 onClick={handleSubmit}
                 disabled={loading || !question.trim()}
-                className={`w-11 h-11 rounded-full flex items-center justify-center transition-all flex-shrink-0 absolute right-3 top-2.5 ${
+                className={`absolute right-3 top-2.5 w-11 h-11 rounded-full flex items-center justify-center transition-all ${
                   loading || !question.trim()
-                    ? 'bg-white/5 text-convo-muted cursor-not-allowed'
-                    : 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40'
+                    ? 'bg-white/5 text-slate-500 cursor-not-allowed'
+                    : 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:scale-105 shadow-lg hover:shadow-blue-500/40'
                 }`}
               >
                 {loading ? (
@@ -153,8 +162,10 @@ const ChatPage = () => {
                   <ArrowUp className="w-5 h-5" />
                 )}
               </button>
+
             </div>
           </div>
+
         </div>
       </main>
     </div>

@@ -1,7 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.mjs";
 
+/* Hide scrollbar */
 @layer utilities {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
@@ -12,19 +12,98 @@
   }
 }
 
+/* ROOT THEME */
 :root {
   color-scheme: dark;
+
+  --bg-main: #020617;
+  --bg-glow-1: #1a2a6c;
+  --bg-glow-2: #16222a;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+
+  --accent: #4f8cff;
+  --accent-2: #6a5cff;
 }
 
+/* BODY BACKGROUND (IMPORTANT) */
 body {
   margin: 0;
-  background-color: #020617;
-  color: #f8fafc;
+  color: var(--text-main);
+
+  background:
+    radial-gradient(circle at 20% 30%, var(--bg-glow-1), transparent 40%),
+    radial-gradient(circle at 80% 70%, var(--bg-glow-2), transparent 40%),
+    var(--bg-main);
+
+  font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom transitions for page routing */
+/* PAGE CENTERING UTILITY */
+.page-center {
+  @apply flex items-center justify-center min-h-screen text-center;
+}
+
+/* GLASS EFFECT */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+}
+
+/* INPUT STYLE (VERY IMPORTANT) */
+.input-box {
+  @apply flex items-center w-full max-w-xl mx-auto;
+  background: rgba(255,255,255,0.05);
+  border-radius: 999px;
+  padding: 8px;
+  transition: 0.3s;
+}
+
+.input-box:focus-within {
+  box-shadow: 0 0 20px rgba(100,150,255,0.25);
+}
+
+.input-box input {
+  @apply flex-1 bg-transparent outline-none text-white px-4 py-3;
+}
+
+/* BUTTON STYLE */
+.btn-glow {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: 999px;
+  padding: 10px 16px;
+  transition: 0.3s;
+}
+
+.btn-glow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(100,150,255,0.4);
+}
+
+/* RESPONSE BOX */
+.response-box {
+  @apply mt-6 p-5 max-w-xl mx-auto;
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  animation: fadeIn 0.4s ease;
+}
+
+/* FADE ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* PAGE TRANSITIONS */
 .fade-enter {
   opacity: 0;
 }
