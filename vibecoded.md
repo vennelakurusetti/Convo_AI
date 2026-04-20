@@ -36,7 +36,7 @@ Convo AI is a minimalist, high-performance AI assistant built with a modern Reac
 
 ## Deployment Status
 - **Backend:** [https://convo-ai-be.vercel.app/](https://convo-ai-be.vercel.app/)
-- **Frontend:** [https://convo-ai-eight.vercel.app/](https://convo-ai-eight.vercel.app/) (or your final Vercel URL)
+- **Frontend:** [https://convo-ai-3f5k0jx14-convo-ai.vercel.app/](https://convo-ai-3f5k0jx14-convo-ai.vercel.app/)
 
 ---
 *Documentation updated on Monday, 20 April 2026.*
