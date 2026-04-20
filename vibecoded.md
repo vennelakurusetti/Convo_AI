@@ -35,8 +35,11 @@ Convo AI is a minimalist, high-performance AI assistant built with a modern Reac
 - **CORS & Routing:** Verified and secured API routes and CORS policies for seamless frontend-backend communication.
 
 ## Deployment Status
-- **Backend:** [https://convo-ai-be.vercel.app/](https://convo-ai-be.vercel.app/)
-- **Frontend:** [https://convo-ai-3f5k0jx14-convo-ai.vercel.app/](https://convo-ai-3f5k0jx14-convo-ai.vercel.app/)
+- **Backend (Render):** [https://convo-ai-1.onrender.com/](https://convo-ai-1.onrender.com/)
+- **Frontend (Vercel):** [https://convo-ai-3f5k0jx14-convo-ai.vercel.app/](https://convo-ai-3f5k0jx14-convo-ai.vercel.app/)
+
+### Deployment Update
+Migrated backend hosting to **Render** for better support of the persistent Express server.
 
 ---
 *Documentation updated on Monday, 20 April 2026.*
