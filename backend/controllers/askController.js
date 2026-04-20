@@ -2,6 +2,12 @@ const { validationResult } = require('express-validator');
 const { getAIResponse } = require('../services/groqService');
 const Query = require('../models/QueryModel');
 
+/**
+ * Handles the 'ask' endpoint by validating input, fetching AI response,
+ * and saving the query to the database.
+ * @param {import('express').Request} req - The Express request object.
+ * @param {import('express').Response} res - The Express response object.
+ */
 const handleAsk = async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
