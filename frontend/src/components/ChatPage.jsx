@@ -17,6 +17,10 @@ const ChatPage = () => {
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
+    console.log("Current API URL:", apiUrl);
+  }, [apiUrl]);
+
+  useEffect(() => {
     const savedHistory = localStorage.getItem('convo_history');
     if (savedHistory) setHistory(JSON.parse(savedHistory));
   }, []);
