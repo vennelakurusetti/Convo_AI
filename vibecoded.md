@@ -27,7 +27,7 @@ This project is structured to be deployed as two separate Vercel projects from a
 - **Build Command:** `npm run build`
 - **Output Directory:** `dist`
 - **Environment Variables:**
-    - `VITE_API_BASE_URL`: The URL of your deployed backend (e.g., `https://convo-ai-beta.vercel.app/api`).
+    - `VITE_API_BASE_URL`: The URL of your deployed backend (e.g., `https://convo-ai-eight.vercel.app/api`).
 
 ## Recent Updates
 - **Frontend Refactor:** Migrated to Tailwind CSS v4 syntax (`@import "tailwindcss"`) and renamed configuration to `tailwind.config.mjs` for ESM compatibility.
