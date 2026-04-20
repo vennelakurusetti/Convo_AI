@@ -14,7 +14,7 @@ const ChatPage = () => {
   const responseRef = useRef(null);
   const inputRef = useRef(null);
 
-  const apiUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
     const savedHistory = localStorage.getItem('convo_history');
