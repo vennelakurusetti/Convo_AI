@@ -10,5 +10,10 @@ The project follows a modular architecture to ensure separation of concerns and 
 
 ## Recent Updates
 - **Frontend Refactor:** Migrated to Tailwind CSS v4 syntax (`@import "tailwindcss"`) and renamed configuration to `tailwind.config.mjs` for ESM compatibility.
+- **UI Enhancements:**
+    - Fixed code indentation issue by using `whitespace-pre-wrap` and `prose` classes in the response box.
+    - Added "Copy to Clipboard" functionality for AI responses with a visual success indicator.
+    - Improved "New Chat" functionality to automatically focus the input field.
+    - Enhanced textarea UI for better readability and interaction.
 - **Deployment & Readiness:** Verified backend and frontend servers are running correctly in the local environment.
 - **Environment Management:** Environment variables are properly configured in both frontend and backend for local development.
