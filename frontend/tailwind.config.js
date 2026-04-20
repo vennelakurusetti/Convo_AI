@@ -9,32 +9,33 @@ export default {
       colors: {
         convo: {
           bg: "#020617",
-          panel: "#0f172a",
+          panel: "#0b1120",
           accent: "#3b82f6",
-          glow: "rgba(59, 130, 246, 0.5)",
           text: "#f8fafc",
-          muted: "#94a3b8",
+          muted: "#64748b",
           border: "#1e293b"
         }
       },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
       animation: {
-        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'fade-in': 'fadeIn 1s ease-out forwards',
-        'slide-up': 'slideUp 0.8s ease-out forwards',
-        'glow': 'glowPulse 3s ease-in-out infinite'
+        'gradient-shift': 'gradient 8s ease infinite',
+        'fade-in': 'fadeIn 0.6s ease-out forwards',
+        'glow': 'glowPulse 2s ease-in-out infinite'
       },
       keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' }
+        gradient: {
+          '0%, 100%': { 'background-position': '0% 50%' },
+          '50%': { 'background-position': '100% 50%' },
         },
-        slideUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' }
         },
         glowPulse: {
-          '0%, 100%': { boxShadow: '0 0 10px rgba(59, 130, 246, 0.2)' },
-          '50%': { boxShadow: '0 0 25px rgba(59, 130, 246, 0.5)' }
+          '0%, 100%': { boxShadow: '0 0 15px rgba(59, 130, 246, 0.2)' },
+          '50%': { boxShadow: '0 0 25px rgba(59, 130, 246, 0.4)' }
         }
       }
     },
